@@ -21,6 +21,26 @@ public class Tabla {
         tabla[5][1] = 5;
         tabla[5][2] = 9;
         tabla[5][4] = 7;
+
+        tabla[2][0] = 1;
+        tabla[3][0] = 1;
+        tabla[4][0] = 1;
+
+        tabla[0][2] = 2;
+        tabla[1][2] = 2;
+        tabla[2][2] = 2;
+
+        tabla[3][2] = 3;
+        tabla[3][3] = 3;
+        tabla[3][4] = 3;
+
+        tabla[4][2] = 4;
+        tabla[4][3] = 4;
+        tabla[4][4] = 4;
+
+        tabla[2][1] = 5;
+        tabla[3][1] = 5;
+        tabla[4][1] = 5;
     }
 
     public void print() {
@@ -38,13 +58,20 @@ public class Tabla {
     }
 
     public boolean check() {
+
         // sor check
-        for (int sor = 0; sor < tabla.length-2; sor++) {
+        for (int sor = 0; sor < tabla.length-1; sor++) {
             if (tabla[sor][tabla.length-1] > 0) {
+                int[] bankjegy = new int[5];
                 int sum = 0;
 
-                for (int oszlop = 0; oszlop < tabla.length-2; oszlop++) {
-                    sum += tabla[sor][oszlop];
+                for (int oszlop = 0; oszlop < tabla.length-1; oszlop++) {
+                    if (tabla[sor][oszlop] != 0) {
+                        if (bankjegy[tabla[sor][oszlop] - 1] == 0) { // minden bankjegyet csak 1x számoljunk
+                            sum += tabla[sor][oszlop];
+                            bankjegy[tabla[sor][oszlop] - 1]++;
+                        }
+                    }
                 }
 
                 if (sum != tabla[sor][tabla.length-1]) return false;
@@ -52,12 +79,18 @@ public class Tabla {
         }
 
         // oszlop check
-        for (int oszlop = 0; oszlop < tabla.length-2; oszlop++) {
+        for (int oszlop = 0; oszlop < tabla.length-1; oszlop++) {
             if (tabla[tabla.length-1][oszlop] > 0) {
+                int[] bankjegy = new int[5];
                 int sum = 0;
 
-                for (int sor = 0; sor < tabla.length-2; sor++) {
-                    sum += tabla[sor][oszlop];
+                for (int sor = 0; sor < tabla.length-1; sor++) {
+                    if (tabla[sor][oszlop] != 0) {
+                        if (bankjegy[tabla[sor][oszlop] - 1] == 0) { // minden bankjegyet csak 1x számoljunk
+                            sum += tabla[sor][oszlop];
+                            bankjegy[tabla[sor][oszlop] - 1]++;
+                        }
+                    }
                 }
 
                 if (sum != tabla[tabla.length-1][oszlop]) return false;
