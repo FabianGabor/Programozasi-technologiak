@@ -1,0 +1,7 @@
+Mozgаs.java
+ Mozgаs
+Beolvasаs.java
+ Beolvasаs
+ Beolvasаs$Ember
+ Beolvasаs$Emberek
+ Beolvasаs$Idopont
