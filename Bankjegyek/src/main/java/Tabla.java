@@ -34,5 +34,37 @@ public class Tabla {
             System.out.printf("%2d ", tabla[tabla.length - 1][oszlop]);
             System.out.print(ANSI_RESET);
         }
+        System.out.println();
     }
+
+    public boolean check() {
+        // sor check
+        for (int sor = 0; sor < tabla.length-2; sor++) {
+            if (tabla[sor][tabla.length-1] > 0) {
+                int sum = 0;
+
+                for (int oszlop = 0; oszlop < tabla.length-2; oszlop++) {
+                    sum += tabla[sor][oszlop];
+                }
+
+                if (sum != tabla[sor][tabla.length-1]) return false;
+            }
+        }
+
+        // oszlop check
+        for (int oszlop = 0; oszlop < tabla.length-2; oszlop++) {
+            if (tabla[tabla.length-1][oszlop] > 0) {
+                int sum = 0;
+
+                for (int sor = 0; sor < tabla.length-2; sor++) {
+                    sum += tabla[sor][oszlop];
+                }
+
+                if (sum != tabla[tabla.length-1][oszlop]) return false;
+            }
+        }
+
+        return true;
+    }
+
 }
