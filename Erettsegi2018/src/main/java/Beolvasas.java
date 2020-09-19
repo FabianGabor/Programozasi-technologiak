@@ -2,9 +2,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.time.Period;
+import java.util.*;
 
 
 public class Beolvasas
@@ -73,13 +72,23 @@ public class Beolvasas
             idonaplo.get(idopont).add(e);
         }
          */
-        HashMap<LocalTime, HashMap<Integer, Ember>> idonaplo = new HashMap<>(); // ArrayList-tel kell Ember.id vagy az id legyen a HashMap kulcsa
+
+        TreeMap<LocalTime, HashMap<Integer, Ember>> idonaplo = new TreeMap<>();
         for( Mozgas m : mozgasok ) {
             LocalTime idopont = LocalTime.of(m.getOra(), m.getPerc());
             Ember e = new Ember(m.getIrany(), m.isBe());
             if (!idonaplo.containsKey(idopont))
                 idonaplo.put(idopont, new HashMap<Integer, Ember>());
             idonaplo.get(idopont).put(m.getAzon(), e);
+        }
+
+        LocalTime vizsgaltIdoszakStart = LocalTime.of(9,3);
+        LocalTime vizsgaltIdoszakEnd = LocalTime.of(9,8);
+
+        Iterator idonaploIterator = idonaplo.entrySet().iterator();
+        while (idonaploIterator.hasNext()) {
+            Map.Entry mapElement = (Map.Entry)idonaploIterator.next();
+            System.out.println(mapElement.getKey());
         }
 
     }
