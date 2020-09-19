@@ -61,35 +61,41 @@ public class Beolvasas
             emberLista.get(m.getAzon()).put(LocalTime.of(m.getOra(),m.getPerc()), e);
         }
 
-        // idorendi naplo
-        /*
-        HashMap<LocalTime, ArrayList<Ember>> idonaplo = new HashMap<>(); // ArrayList-tel kell Ember.id vagy az id legyen a HashMap kulcsa
-        for( Mozgas m : mozgasok ) {
-            LocalTime idopont = LocalTime.of(m.getOra(), m.getPerc());
-            Ember e = new Ember(m.getIrany(), m.isBe());
-            if (!idonaplo.containsKey(idopont))
-                idonaplo.put(idopont, new ArrayList<Ember>());
-            idonaplo.get(idopont).add(e);
-        }
-         */
-
         TreeMap<LocalTime, HashMap<Integer, Ember>> idonaplo = new TreeMap<>();
         for( Mozgas m : mozgasok ) {
             LocalTime idopont = LocalTime.of(m.getOra(), m.getPerc());
-            Ember e = new Ember(m.getIrany(), m.isBe());
+            Ember e = new Ember(m.getAzon(), m.getIrany(), m.isBe());
             if (!idonaplo.containsKey(idopont))
                 idonaplo.put(idopont, new HashMap<Integer, Ember>());
             idonaplo.get(idopont).put(m.getAzon(), e);
         }
 
-        LocalTime vizsgaltIdoszakStart = LocalTime.of(9,3);
-        LocalTime vizsgaltIdoszakEnd = LocalTime.of(9,8);
+        LocalTime vizsgaltIdoszakStart = LocalTime.of(9,0);
+        LocalTime vizsgaltIdoszakEnd = LocalTime.of(9,15);
+        ArrayList<Ember> keresettNok = new ArrayList<>(2);
+        keresettNok.add(0, new Ember());
 
         Iterator idonaploIterator = idonaplo.entrySet().iterator();
         while (idonaploIterator.hasNext()) {
-            Map.Entry mapElement = (Map.Entry)idonaploIterator.next();
-            System.out.println(mapElement.getKey());
+            Map.Entry idopontnaploElement = (Map.Entry)idonaploIterator.next();
+            LocalTime key = LocalTime.parse(idopontnaploElement.getKey().toString());
+
+            if ( key.plusSeconds(1).isAfter(vizsgaltIdoszakStart) &&
+                    key.minusSeconds(1).isBefore(vizsgaltIdoszakEnd) ) {
+                System.out.println(idopontnaploElement.getKey());
+
+                for (Map.Entry<Integer,Ember> ember : idonaplo.get(key).entrySet()) {
+                    System.out.println("\t" + ember.getValue().getAzon() + " " + ember.getValue().getIrany());
+                    if (ember.getValue().getAzon() % 2 == 0 && ember.getValue().isBe() && keresettNok.get(0).getAzon() == 0)
+                        keresettNok.add(0, ember.getValue());
+                    if (ember.getValue().getAzon() % 2 == 0 && ember.getValue().isBe() == false)
+                        keresettNok.add(1, ember.getValue());
+                }
+            }
         }
+
+        System.out.println("Elso no aki belepett: " + ((keresettNok.get(0).getAzon() != 0) ? keresettNok.get(0).getAzon() : "nincs"));
+        System.out.println("Utolso no aki tavozott: " + ((keresettNok.get(1).getAzon() != 0) ? keresettNok.get(1).getAzon() : "nincs"));
 
     }
 }
