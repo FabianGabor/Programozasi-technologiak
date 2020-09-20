@@ -1,7 +1,7 @@
 import java.io.*;
+import java.time.Duration;
 import java.time.LocalTime;
 import java.util.*;
-import java.util.Map.Entry;
 
 
 public class Beolvasas
@@ -210,7 +210,71 @@ public class Beolvasas
 
         // 6.
         // Melyik emberpár volt legtöbbet bent együtt? Ha több ilyen pár van, mindet írjuk ki!
-        
+
+        /*
+        LocalTime start1 = LocalTime.of(9, 01);
+        LocalTime end1 = LocalTime.of(9, 12);
+        LocalTime start2 = LocalTime.of(9, 10);
+        LocalTime end2 = LocalTime.of(9, 15);
+        System.out.println(Duration.between(start1, end2).getSeconds());
+        System.out.println(MINUTES.between(start2, start1) - MINUTES.between(end2, start1));
+         */
+
+        System.out.println("\n6. feladat:");
+
+
+        //TreeMap<Integer, Integer> egyuttlet = new TreeMap<>();
+        //ArrayList<TreeMap<Integer, Integer>> egyuttlet = new ArrayList<>();
+        Duration egyuttlet[][] = new Duration[30][30];
+
+        //for (Mozgas m : mozgasok) {
+
+        for (int i=0; i<mozgasok.length; i++) {
+            for (int j=i+i; j<mozgasok.length; j++) {
+                LocalTime ibe, iki, jbe, jki, x,y;
+                if (mozgasok[i].isBe())
+                    x = LocalTime.of( mozgasok[i].getOra(), mozgasok[i].getPerc() );
+                else
+                    x = LocalTime.of( mozgasok[i].getOra(), mozgasok[i].getPerc() );
+                if (mozgasok[j].isBe())
+                    y = LocalTime.of( mozgasok[j].getOra(), mozgasok[j].getPerc() );
+                else
+                    y = LocalTime.of( mozgasok[j].getOra(), mozgasok[j].getPerc() );
+
+                egyuttlet[mozgasok[i].getAzon()][mozgasok[j].getAzon()] = Duration.between(x, y);
+            }
+        }
+
+
+        /*
+        //TreeMap<Ember, Ember> egyuttlet = new TreeMap<>();
+        ArrayList<ArrayList<Integer>> egyuttlet = new ArrayList<>();
+        int[][] egy;
+
+        List<Integer> elist = new ArrayList<Integer>(emberLista.keySet());
+        for (int i = 0; i < elist.size() - 1; i++) {
+            for (int j = i+1; j < elist.size() - 1; j++) {
+                //System.out.println(elist.get(i) + " " + elist.get(j));
+                //System.out.println(emberLista.get(elist.get(i)).entrySet());
+                System.out.println(emberLista.get(elist.get(i)).get(LocalTime.of(9,2)));
+                Set<Entry<Integer, HashMap<LocalTime, Ember>>> localTime = emberLista.entrySet();
+
+
+
+                LocalTime ibement = emberLista.get(elist.get(i)).get(LocalTime.of(9,1)).getIdopont();
+                for (Map.Entry<LocalTime, Ember> x : emberLista.get(elist.get(j)).entrySet()) {
+                    LocalTime jbement = x.getKey();
+                    System.out.println(elist.get(i) + " " + jbement);
+                }
+                egyuttlet.add(i, new ArrayList<>(j));
+
+
+            }
+        }
+         */
+
+
+
 
     } // main end
 }
