@@ -163,5 +163,59 @@ public class Beolvasas
             System.out.print(bn.getKey() + " ");
         }
         System.out.println();
-    }
+
+
+
+        // 5.
+        // Adjuk meg azokat az időintervallumokat, amikor a legtöbb személy volt bent, ha több ilyen időintervallum van, mindet!
+        System.out.println("\n5. feladat:");
+
+        TreeMap<String, Integer> maxLetszamIntervallum = new TreeMap<>();
+
+        List<LocalTime> list = new ArrayList<LocalTime>(idonaplo.keySet());
+        for (int i = 0; i < list.size() - 1; i++) {
+            Integer letszam = 0;
+
+            for (Map.Entry<Integer, Ember> ember : idonaplo.get(list.get(i)).entrySet())
+            {
+                if (ember.getValue().isBe())
+                    letszam++;
+                else
+                    letszam--;
+            }
+
+            for (int j = i + 1; j < list.size(); j++) {
+
+                String keyIntervallum = list.get(i).toString() + "-" + list.get(j).toString();
+
+                for (Map.Entry<Integer, Ember> ember : idonaplo.get(list.get(j)).entrySet())
+                {
+                    if (ember.getValue().isBe())
+                        letszam++;
+                    else
+                        letszam--;
+                }
+
+                if (maxLetszamIntervallum.get(keyIntervallum) == null)
+                    maxLetszamIntervallum.put(keyIntervallum, letszam);
+                else
+                    maxLetszamIntervallum.replace(keyIntervallum, letszam);
+            }
+        }
+
+        int maxLetszam = 0;
+        for (Map.Entry<String, Integer> ml: maxLetszamIntervallum.entrySet()) {
+            System.out.println(ml.getKey() + " : " + ml.getValue());
+            if (ml.getValue() > maxLetszam)
+                maxLetszam = ml.getValue();
+        }
+        System.out.println("Max egyideju letszam: " + maxLetszam);
+        for (Map.Entry<String, Integer> ml: maxLetszamIntervallum.entrySet()) {
+            if (ml.getValue().equals(maxLetszam))
+                System.out.println(ml.getKey() + " : " + ml.getValue());
+        }
+
+
+
+    } // main end
 }
