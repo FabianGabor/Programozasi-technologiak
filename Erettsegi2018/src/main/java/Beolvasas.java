@@ -176,30 +176,23 @@ public class Beolvasas
         for (int i = 0; i < list.size() - 1; i++) {
             Integer letszam = 0;
 
-            for (Map.Entry<Integer, Ember> ember : idonaplo.get(list.get(i)).entrySet())
-            {
-                if (ember.getValue().isBe())
-                    letszam++;
-                else
-                    letszam--;
-            }
+            for (int j = 0 ; j < list.size()-1; j++) {
+                String keyIntervallum = list.get(i).toString() + "-" + list.get(j + 1).toString();
 
-            for (int j = i + 1; j < list.size(); j++) {
-
-                String keyIntervallum = list.get(i).toString() + "-" + list.get(j).toString();
-
-                for (Map.Entry<Integer, Ember> ember : idonaplo.get(list.get(j)).entrySet())
-                {
+                for (Map.Entry<Integer, Ember> ember : idonaplo.get(list.get(j)).entrySet()) {
                     if (ember.getValue().isBe())
                         letszam++;
                     else
                         letszam--;
                 }
 
-                if (maxLetszamIntervallum.get(keyIntervallum) == null)
-                    maxLetszamIntervallum.put(keyIntervallum, letszam);
-                else
-                    maxLetszamIntervallum.replace(keyIntervallum, letszam);
+                if (list.get(i).compareTo(list.get(j)) <= 0)
+                {
+                    if (maxLetszamIntervallum.get(keyIntervallum) == null)
+                        maxLetszamIntervallum.put(keyIntervallum, letszam);
+                    else
+                        maxLetszamIntervallum.replace(keyIntervallum, letszam);
+                }
             }
         }
 
@@ -215,7 +208,9 @@ public class Beolvasas
                 System.out.println(ml.getKey() + " : " + ml.getValue());
         }
 
-
+        // 6.
+        // Melyik emberpár volt legtöbbet bent együtt? Ha több ilyen pár van, mindet írjuk ki!
+        
 
     } // main end
 }
