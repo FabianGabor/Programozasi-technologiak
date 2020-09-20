@@ -1,15 +1,11 @@
-import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.*;
 import java.time.LocalTime;
-import java.time.Period;
 import java.util.*;
 
 
 public class Beolvasas
 {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) throws IOException {
         // 1. feladat
         Mozgas[] mozgasok = null;
 
@@ -70,6 +66,12 @@ public class Beolvasas
             idonaplo.get(idopont).put(m.getAzon(), e);
         }
 
+
+
+        // 1.
+        // Írja a képernyőre annak a nőnek az azonosítóját, aki a vizsgált időszakon belül először lépett be az ajtón,
+        // és azét, aki utoljára távozott a megfigyelési időszakban!
+
         LocalTime vizsgaltIdoszakStart = LocalTime.of(9,0);
         LocalTime vizsgaltIdoszakEnd = LocalTime.of(9,15);
         ArrayList<Ember> keresettNok = new ArrayList<>(2);
@@ -97,5 +99,36 @@ public class Beolvasas
         System.out.println("Elso no aki belepett: " + ((keresettNok.get(0).getAzon() != 0) ? keresettNok.get(0).getAzon() : "nincs"));
         System.out.println("Utolso no aki tavozott: " + ((keresettNok.get(1).getAzon() != 0) ? keresettNok.get(1).getAzon() : "nincs"));
 
+        // 1. vege
+
+        // 2.
+        // Határozza meg a fájlban szereplő személyek közül, ki hányszor haladt át a társalgó ajtaján!
+        // A meghatározott értékeket azonosító szerint növekvő sorrendben írja az athaladas.txt fájlba!
+        // Soronként egy személy azonosítója, és tőle egy szóközzel elválasztva az áthaladások száma szerepeljen!
+
+        String filenameAthalad = "src/main/java/athalad.txt";
+        File fileAthalad = new File(filenameAthalad);
+        BufferedWriter writer = new BufferedWriter(new FileWriter(filenameAthalad));
+
+        TreeMap<Integer, Integer> szamlalAthalad = new TreeMap<>();
+
+        Iterator emberListaIterator = emberLista.entrySet().iterator();
+        while (emberListaIterator.hasNext()) {
+            Map.Entry emberListaElement = (Map.Entry) emberListaIterator.next();
+
+            Integer szamlal = ((HashMap<?, ?>) emberListaElement.getValue()).size();
+            System.out.println(emberListaElement.getKey() + " " + szamlal);
+            szamlalAthalad.put((Integer)emberListaElement.getKey(), szamlal);
+        }
+
+        szamlalAthalad.forEach((key,value) -> {
+            try {
+                writer.write(key + "," + value + "\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        writer.close();
+        // 2. vege
     }
 }
