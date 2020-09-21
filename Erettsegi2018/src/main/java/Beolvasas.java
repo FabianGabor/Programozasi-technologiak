@@ -1,3 +1,5 @@
+import com.sun.source.tree.Tree;
+
 import java.io.*;
 import java.time.Duration;
 import java.time.LocalTime;
@@ -6,6 +8,149 @@ import java.util.*;
 
 public class Beolvasas
 {
+    public static boolean talalkoztak(Ember e1, Ember e2) {
+        if (e1.getKiment().compareTo(e2.getBement()) <= 0)
+            return false;
+        if (e1.getBement().compareTo(e2.getKiment()) >= 0)
+            return false;
+
+        return true;
+    }
+
+    public static void f5 (TreeMap<LocalTime, HashMap<Integer, Ember>> idonaplo) {
+        System.out.println("\n5. feladat:");
+
+        TreeMap<String, Integer> maxLetszamIntervallum = new TreeMap<>();
+
+        List<LocalTime> list = new ArrayList<LocalTime>(idonaplo.keySet());
+        for (int i = 0; i < list.size() - 1; i++) {
+            Integer letszam = 0;
+
+            for (int j = 0 ; j < list.size()-1; j++) {
+                String keyIntervallum = list.get(i).toString() + "-" + list.get(j + 1).toString();
+
+                for (Map.Entry<Integer, Ember> ember : idonaplo.get(list.get(j)).entrySet()) {
+                    if (ember.getValue().isBe())
+                        letszam++;
+                    else
+                        letszam--;
+                }
+
+                if (list.get(i).compareTo(list.get(j)) <= 0)
+                {
+                    if (maxLetszamIntervallum.get(keyIntervallum) == null)
+                        maxLetszamIntervallum.put(keyIntervallum, letszam);
+                    else
+                        maxLetszamIntervallum.replace(keyIntervallum, letszam);
+                }
+            }
+        }
+
+        int maxLetszam = 0;
+        for (Map.Entry<String, Integer> ml: maxLetszamIntervallum.entrySet()) {
+            System.out.println(ml.getKey() + " : " + ml.getValue());
+            if (ml.getValue() > maxLetszam)
+                maxLetszam = ml.getValue();
+        }
+        System.out.println("Max egyideju letszam: " + maxLetszam);
+        for (Map.Entry<String, Integer> ml: maxLetszamIntervallum.entrySet()) {
+            if (ml.getValue().equals(maxLetszam))
+                System.out.println(ml.getKey() + " : " + ml.getValue());
+        }
+    }
+
+    public static void f6 (Mozgas mozgasok[]) {
+        System.out.println("\n6. feladat:");
+
+        TreeMap<Integer, Ember> emberListaBeKi = new TreeMap<>();
+
+        for (int i = 0; i < mozgasok.length; i++) {
+            if (emberListaBeKi.get(mozgasok[i].getAzon()) == null) {
+                Ember e = new Ember();
+                e.setAzon(mozgasok[i].getAzon());
+                if (mozgasok[i].isBe())
+                    e.setBement(LocalTime.of(mozgasok[i].getOra(), mozgasok[i].getPerc()));
+                else
+                    e.setKiment(LocalTime.of(mozgasok[i].getOra(), mozgasok[i].getPerc()));
+
+                emberListaBeKi.put(e.getAzon(), e);
+            } else {
+                if (emberListaBeKi.get(mozgasok[i].getAzon()).getKiment() == null) {
+                    if (!mozgasok[i].isBe())
+                        emberListaBeKi.get(mozgasok[i].getAzon()).setKiment(LocalTime.of(mozgasok[i].getOra(), mozgasok[i].getPerc()));
+                    else
+                        emberListaBeKi.get(mozgasok[i].getAzon()).setKiment(LocalTime.of(15, 0));
+
+                }
+            }
+        }
+
+        ArrayList<Integer> emberListaBeKiList = new ArrayList<Integer>(emberListaBeKi.keySet());
+
+        Map<Integer, TreeMap<Integer, Integer>> egyuttletek = new TreeMap<>();
+
+        for (int i = 0; i < emberListaBeKiList.size(); i++) {
+            for (int j = i + 1; j < emberListaBeKiList.size(); j++) {
+
+                Ember e1 = emberListaBeKi.get(emberListaBeKiList.get(i));
+                Ember e2 = emberListaBeKi.get(emberListaBeKiList.get(j));
+
+                if (e1.getKiment() == null) e1.setKiment(LocalTime.of(15, 0));
+                if (e2.getKiment() == null) e2.setKiment(LocalTime.of(15, 0));
+
+                egyuttletek.putIfAbsent(emberListaBeKiList.get(i), new TreeMap<Integer, Integer>());
+                egyuttletek.get(emberListaBeKiList.get(i)).put(emberListaBeKiList.get(j), (int) egyuttIdo(e1, e2).toMinutes());
+
+                System.out.println(emberListaBeKiList.get(i) + " + " + emberListaBeKiList.get(j) + " egyutt voltak: " + egyuttIdo(e1, e2).toMinutes() + " percet."); // 347 perc = 15 oraig akik nem tavoztak
+            }
+        }
+
+        ArrayList<Integer> egyuttletekList = new ArrayList<Integer>(egyuttletek.keySet());
+        Integer maxEgyuttletIdo = 0;
+
+        for (Map.Entry<Integer, TreeMap<Integer, Integer>> e : egyuttletek.entrySet()) {
+            Integer key = e.getKey();
+            for (Map.Entry<Integer, Integer> ee : egyuttletek.get(key).entrySet()) {
+                if (ee.getValue() > maxEgyuttletIdo)
+                    maxEgyuttletIdo = ee.getValue();
+            }
+        }
+
+        System.out.println("\nLegtobb idot egyutt tolto par(ok): ");
+        for (Map.Entry<Integer, TreeMap<Integer, Integer>> e : egyuttletek.entrySet()) {
+            Integer key = e.getKey();
+            for (Map.Entry<Integer, Integer> ee : egyuttletek.get(key).entrySet()) {
+                if (ee.getValue() == maxEgyuttletIdo)
+                    System.out.println(e.getKey() + " + " + ee.getKey() + " par " + ee.getValue() + " percet volt egyutt");
+            }
+        }
+    }
+
+    public static Duration egyuttIdo(Ember e1, Ember e2) {
+        Duration d1, d2;
+        if (talalkoztak(e1,e2))
+        {
+            if (e1.getKiment().compareTo(e2.getBement()) > 0) {
+                d1 = Duration.between(e1.getBement(), e2.getKiment());
+                //return d;
+            }
+            if (e1.getBement().compareTo(e2.getKiment()) < 0) {
+                d2 = Duration.between(e2.getBement(), e1.getKiment());
+                //return d;
+            }
+
+            d1 = Duration.between(e1.getBement(), e2.getKiment());
+            d2 = Duration.between(e2.getBement(), e1.getKiment());
+            //System.out.println(d1.getSeconds()/60 + " - " + d2.getSeconds()/60);
+
+            if (d1.compareTo(d2) > 0) return d2;
+            else return d1;
+        }
+
+
+        return Duration.ofSeconds(0);
+    }
+
     public static void main(String[] args) throws IOException {
         // 1. feladat
         Mozgas[] mozgasok = null;
@@ -57,7 +202,7 @@ public class Beolvasas
             if (!emberLista.containsKey(m.getAzon()))
                 emberLista.put( m.getAzon(), new HashMap<>());
 
-            Ember e = new Ember(LocalTime.of(m.getOra(),m.getPerc()), m.getIrany(), m.isBe());
+            Ember e = new Ember(m.getAzon(), LocalTime.of(m.getOra(),m.getPerc()), m.getIrany(), m.isBe());
             emberLista.get(m.getAzon()).put(LocalTime.of(m.getOra(),m.getPerc()), e);
         }
 
@@ -164,117 +309,17 @@ public class Beolvasas
         }
         System.out.println();
 
-
-
         // 5.
         // Adjuk meg azokat az időintervallumokat, amikor a legtöbb személy volt bent, ha több ilyen időintervallum van, mindet!
-        System.out.println("\n5. feladat:");
-
-        TreeMap<String, Integer> maxLetszamIntervallum = new TreeMap<>();
-
-        List<LocalTime> list = new ArrayList<LocalTime>(idonaplo.keySet());
-        for (int i = 0; i < list.size() - 1; i++) {
-            Integer letszam = 0;
-
-            for (int j = 0 ; j < list.size()-1; j++) {
-                String keyIntervallum = list.get(i).toString() + "-" + list.get(j + 1).toString();
-
-                for (Map.Entry<Integer, Ember> ember : idonaplo.get(list.get(j)).entrySet()) {
-                    if (ember.getValue().isBe())
-                        letszam++;
-                    else
-                        letszam--;
-                }
-
-                if (list.get(i).compareTo(list.get(j)) <= 0)
-                {
-                    if (maxLetszamIntervallum.get(keyIntervallum) == null)
-                        maxLetszamIntervallum.put(keyIntervallum, letszam);
-                    else
-                        maxLetszamIntervallum.replace(keyIntervallum, letszam);
-                }
-            }
-        }
-
-        int maxLetszam = 0;
-        for (Map.Entry<String, Integer> ml: maxLetszamIntervallum.entrySet()) {
-            System.out.println(ml.getKey() + " : " + ml.getValue());
-            if (ml.getValue() > maxLetszam)
-                maxLetszam = ml.getValue();
-        }
-        System.out.println("Max egyideju letszam: " + maxLetszam);
-        for (Map.Entry<String, Integer> ml: maxLetszamIntervallum.entrySet()) {
-            if (ml.getValue().equals(maxLetszam))
-                System.out.println(ml.getKey() + " : " + ml.getValue());
-        }
+        f5(idonaplo);
 
         // 6.
         // Melyik emberpár volt legtöbbet bent együtt? Ha több ilyen pár van, mindet írjuk ki!
-
-        /*
-        LocalTime start1 = LocalTime.of(9, 01);
-        LocalTime end1 = LocalTime.of(9, 12);
-        LocalTime start2 = LocalTime.of(9, 10);
-        LocalTime end2 = LocalTime.of(9, 15);
-        System.out.println(Duration.between(start1, end2).getSeconds());
-        System.out.println(MINUTES.between(start2, start1) - MINUTES.between(end2, start1));
-         */
-
-        System.out.println("\n6. feladat:");
-
-
-        //TreeMap<Integer, Integer> egyuttlet = new TreeMap<>();
-        //ArrayList<TreeMap<Integer, Integer>> egyuttlet = new ArrayList<>();
-        Duration egyuttlet[][] = new Duration[30][30];
-
-        //for (Mozgas m : mozgasok) {
-
-        for (int i=0; i<mozgasok.length; i++) {
-            for (int j=i+i; j<mozgasok.length; j++) {
-                LocalTime ibe, iki, jbe, jki, x,y;
-                if (mozgasok[i].isBe())
-                    x = LocalTime.of( mozgasok[i].getOra(), mozgasok[i].getPerc() );
-                else
-                    x = LocalTime.of( mozgasok[i].getOra(), mozgasok[i].getPerc() );
-                if (mozgasok[j].isBe())
-                    y = LocalTime.of( mozgasok[j].getOra(), mozgasok[j].getPerc() );
-                else
-                    y = LocalTime.of( mozgasok[j].getOra(), mozgasok[j].getPerc() );
-
-                egyuttlet[mozgasok[i].getAzon()][mozgasok[j].getAzon()] = Duration.between(x, y);
-            }
-        }
-
-
-        /*
-        //TreeMap<Ember, Ember> egyuttlet = new TreeMap<>();
-        ArrayList<ArrayList<Integer>> egyuttlet = new ArrayList<>();
-        int[][] egy;
-
-        List<Integer> elist = new ArrayList<Integer>(emberLista.keySet());
-        for (int i = 0; i < elist.size() - 1; i++) {
-            for (int j = i+1; j < elist.size() - 1; j++) {
-                //System.out.println(elist.get(i) + " " + elist.get(j));
-                //System.out.println(emberLista.get(elist.get(i)).entrySet());
-                System.out.println(emberLista.get(elist.get(i)).get(LocalTime.of(9,2)));
-                Set<Entry<Integer, HashMap<LocalTime, Ember>>> localTime = emberLista.entrySet();
-
-
-
-                LocalTime ibement = emberLista.get(elist.get(i)).get(LocalTime.of(9,1)).getIdopont();
-                for (Map.Entry<LocalTime, Ember> x : emberLista.get(elist.get(j)).entrySet()) {
-                    LocalTime jbement = x.getKey();
-                    System.out.println(elist.get(i) + " " + jbement);
-                }
-                egyuttlet.add(i, new ArrayList<>(j));
-
-
-            }
-        }
-         */
-
+        f6(mozgasok);
 
 
 
     } // main end
+
+
 }

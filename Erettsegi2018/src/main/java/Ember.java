@@ -6,6 +6,8 @@ public class Ember {
     private LocalTime idopont;
     private String irany;
     private boolean be;
+    private LocalTime bement, kiment;
+
 
     public Ember() {
     }
@@ -20,6 +22,13 @@ public class Ember {
         this.be = be;
     }
     public Ember(LocalTime idopont, String irany, boolean be) {
+        this.idopont = idopont;
+        this.irany = irany;
+        this.be = be;
+    }
+
+    public Ember(int azon, LocalTime idopont, String irany, boolean be) {
+        this.azon = azon;
         this.idopont = idopont;
         this.irany = irany;
         this.be = be;
@@ -55,5 +64,21 @@ public class Ember {
 
     public void setBe(boolean be) {
         this.be = be;
+    }
+
+    public LocalTime getBement() {
+        return bement;
+    }
+
+    public void setBement(LocalTime bement) {
+        this.bement = bement;
+    }
+
+    public LocalTime getKiment() {
+        return kiment;
+    }
+
+    public void setKiment(LocalTime kiment) {
+        this.kiment = kiment;
     }
 }
