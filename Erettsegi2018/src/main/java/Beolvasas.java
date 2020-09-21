@@ -1,4 +1,6 @@
-import com.sun.source.tree.Tree;
+/*
+https://github.com/FabianGabor/Programozasi-technologiak/tree/main/Erettsegi2018
+ */
 
 import java.io.*;
 import java.time.Duration;

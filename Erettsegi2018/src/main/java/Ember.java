@@ -1,5 +1,8 @@
+/*
+https://github.com/FabianGabor/Programozasi-technologiak/tree/main/Erettsegi2018
+ */
+
 import java.time.LocalTime;
-import java.util.ArrayList;
 
 public class Ember {
     private int azon;
