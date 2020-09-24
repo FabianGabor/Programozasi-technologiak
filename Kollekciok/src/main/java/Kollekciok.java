@@ -1,19 +1,14 @@
 import com.google.common.base.Stopwatch;
-import com.sun.source.tree.Tree;
-
-import java.lang.instrument.Instrumentation;
+import java.io.IOException;
 import java.text.NumberFormat;
-import java.time.Instant;
 import java.util.*;
-
 import static java.util.concurrent.TimeUnit.*;
 
-public class ArrayList {
+public class Kollekciok {
     // Adjon olyan Java-kódot, ami összehasonlítja a TreeSet és a LinkedList adatszerkezetek keresési algoritmusait,
     // tízmilliós-milliárdos nagyságrendű adatszerkezeteken (a JVM heap-jét növelni szükséges lehet) !
 
-    //final static int N = 10000000;
-    final static int N[] = new int[] {30, 3000, 300000, 10000000 };
+    final static int N[] = new int[] {10, 1000, 100000, 1000000 };
 
 
     public static long beszur (Collection<Integer> collection, int x) {
@@ -48,10 +43,13 @@ public class ArrayList {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.GERMAN);
         numberFormat.setGroupingUsed(true);
-
+        BenchmarkResult result = new BenchmarkResult();
+        BenchmarkResult.Find resultFind = new BenchmarkResult.Find();
+        BenchmarkResult.Insert resultInsert = new BenchmarkResult.Insert();
+        TreeMap<Integer, BenchmarkResult> results = new TreeMap<>();
 
 
         for (int i=0; i<N.length; i++) {
@@ -62,30 +60,28 @@ public class ArrayList {
 
             System.out.println("Feltoltes START");
             feltolt(treeSet, linkedList, N[i]);
-            System.out.println("Feltoltes END\n");
-
-            //System.out.println(ObjectSizeFetcher.getObjectSize(linkedList));
+            System.out.println("Feltoltes END");
 
             Stopwatch stopwatchTreeSet = Stopwatch.createUnstarted();
             Stopwatch stopwatchLinkedList = Stopwatch.createUnstarted();
 
             Random random = new Random();
             int r = random.nextInt();
-            long treeSetMillis = beszur(treeSet, r);
-            long linkedListMillis = beszur(linkedList, r);
 
-            System.out.println("TreeSet beszuras: " + treeSetMillis + " ms");
-            System.out.println("LinkedList beszuras: " + linkedListMillis + " ms");
-            System.out.println("TreeSet - LinkedList: " + String.valueOf(treeSetMillis - linkedListMillis) + " ms");
-            System.out.println();
+            result.setSize(N[i]);
 
-            treeSetMillis = keres(treeSet, 1);
-            linkedListMillis = keres(linkedList, 1);
+            resultInsert.setTreeset(beszur(treeSet, r));
+            resultInsert.setLinkedlist(beszur(linkedList, r));
+            result.setInsert(resultInsert);
 
-            System.out.println("TreeSet kereses: " + treeSetMillis + "ms");
-            System.out.println("LinkedList kereses: " + linkedListMillis + "ms");
+            resultFind.setTreeset(keres(treeSet,1));
+            resultFind.setLinkedlist(keres(linkedList,1));
+            result.setFind(resultFind);
 
-            System.out.println("TreeSet kereses: " + (linkedListMillis / treeSetMillis) + "x gyorsabb");
+            results.put(N[i], result);
         }
+
+        result.printResults(results);
+        result.writeFileResults(results);
     }
 }

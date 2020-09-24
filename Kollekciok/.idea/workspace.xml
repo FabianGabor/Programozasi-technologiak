@@ -63,32 +63,36 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
   <component name="RunManager">
-    <configuration name="ArrayList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ArrayList" />
+    <configuration name="Kollekciok" type="Application" factoryName="Application" temporary="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-15" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="Kollekciok" />
       <module name="Kollekciok.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ArrayList" />
+        <item itemvalue="Application.Kollekciok" />
       </list>
     </recent_temporary>
   </component>
@@ -105,6 +109,7 @@
       <workItem from="1600773620964" duration="1874000" />
       <workItem from="1600938075409" duration="7227000" />
       <workItem from="1600955164597" duration="150000" />
+      <workItem from="1600975735474" duration="7387000" />
     </task>
     <servers />
   </component>
@@ -124,60 +129,78 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="613" y="146" key="#com.intellij.ide.util.MemberChooser" timestamp="1600771808118">
-      <screen x="0" y="0" width="1600" height="856" />
+    <state x="780" y="207" width="374" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1600977508881">
+      <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state x="613" y="146" key="#com.intellij.ide.util.MemberChooser/0.0.1600.856@0.0.1600.856" timestamp="1600771808118" />
-    <state width="1802" height="382" key="GridCell.Tab.0.bottom" timestamp="1600955313871">
-      <screen x="72" y="26" width="1848" height="1054" />
+    <state x="780" y="207" width="374" height="569" key="#com.intellij.ide.util.MemberChooser/72.27.1848.1053@72.27.1848.1053" timestamp="1600977508881" />
+    <state x="723" y="361" width="525" height="423" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1600975981705">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="723" y="361" width="525" height="423" key="#com.intellij.ide.util.TreeClassChooserDialog/72.27.1848.1053@72.27.1848.1053" timestamp="1600975981705" />
+    <state x="766" y="282" width="449" height="550" key="FileChooserDialogImpl" timestamp="1600979539529">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="766" y="282" width="449" height="550" key="FileChooserDialogImpl/72.27.1848.1053@72.27.1848.1053" timestamp="1600979539529" />
+    <state width="1802" height="258" key="GridCell.Tab.0.bottom" timestamp="1600983481562">
+      <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state width="1554" height="262" key="GridCell.Tab.0.bottom/0.0.1600.856@0.0.1600.856" timestamp="1600775498759" />
     <state width="1802" height="382" key="GridCell.Tab.0.bottom/72.26.1848.1054@72.26.1848.1054" timestamp="1600955313871" />
-    <state width="1802" height="382" key="GridCell.Tab.0.center" timestamp="1600955313871">
-      <screen x="72" y="26" width="1848" height="1054" />
+    <state width="1802" height="258" key="GridCell.Tab.0.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1600983481562" />
+    <state width="1802" height="258" key="GridCell.Tab.0.center" timestamp="1600983481562">
+      <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state width="1554" height="262" key="GridCell.Tab.0.center/0.0.1600.856@0.0.1600.856" timestamp="1600775498758" />
     <state width="1802" height="382" key="GridCell.Tab.0.center/72.26.1848.1054@72.26.1848.1054" timestamp="1600955313871" />
-    <state width="1802" height="382" key="GridCell.Tab.0.left" timestamp="1600955313871">
-      <screen x="72" y="26" width="1848" height="1054" />
+    <state width="1802" height="258" key="GridCell.Tab.0.center/72.27.1848.1053@72.27.1848.1053" timestamp="1600983481562" />
+    <state width="1802" height="258" key="GridCell.Tab.0.left" timestamp="1600983481561">
+      <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state width="1554" height="262" key="GridCell.Tab.0.left/0.0.1600.856@0.0.1600.856" timestamp="1600775498756" />
     <state width="1802" height="382" key="GridCell.Tab.0.left/72.26.1848.1054@72.26.1848.1054" timestamp="1600955313871" />
-    <state width="1802" height="382" key="GridCell.Tab.0.right" timestamp="1600955313871">
-      <screen x="72" y="26" width="1848" height="1054" />
+    <state width="1802" height="258" key="GridCell.Tab.0.left/72.27.1848.1053@72.27.1848.1053" timestamp="1600983481561" />
+    <state width="1802" height="258" key="GridCell.Tab.0.right" timestamp="1600983481562">
+      <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state width="1554" height="262" key="GridCell.Tab.0.right/0.0.1600.856@0.0.1600.856" timestamp="1600775498759" />
     <state width="1802" height="382" key="GridCell.Tab.0.right/72.26.1848.1054@72.26.1848.1054" timestamp="1600955313871" />
-    <state width="1802" height="340" key="GridCell.Tab.1.bottom" timestamp="1600955156244">
-      <screen x="72" y="26" width="1848" height="1054" />
+    <state width="1802" height="258" key="GridCell.Tab.0.right/72.27.1848.1053@72.27.1848.1053" timestamp="1600983481562" />
+    <state width="1802" height="340" key="GridCell.Tab.1.bottom" timestamp="1600981386009">
+      <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state width="1554" height="264" key="GridCell.Tab.1.bottom/0.0.1600.856@0.0.1600.856" timestamp="1600772860860" />
     <state width="1802" height="340" key="GridCell.Tab.1.bottom/72.26.1848.1054@72.26.1848.1054" timestamp="1600955156244" />
-    <state width="1802" height="340" key="GridCell.Tab.1.center" timestamp="1600955156244">
-      <screen x="72" y="26" width="1848" height="1054" />
+    <state width="1802" height="340" key="GridCell.Tab.1.bottom/72.27.1848.1053@72.27.1848.1053" timestamp="1600981386009" />
+    <state width="1802" height="340" key="GridCell.Tab.1.center" timestamp="1600981386008">
+      <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state width="1554" height="264" key="GridCell.Tab.1.center/0.0.1600.856@0.0.1600.856" timestamp="1600772860860" />
     <state width="1802" height="340" key="GridCell.Tab.1.center/72.26.1848.1054@72.26.1848.1054" timestamp="1600955156244" />
-    <state width="1802" height="340" key="GridCell.Tab.1.left" timestamp="1600955156244">
-      <screen x="72" y="26" width="1848" height="1054" />
+    <state width="1802" height="340" key="GridCell.Tab.1.center/72.27.1848.1053@72.27.1848.1053" timestamp="1600981386008" />
+    <state width="1802" height="340" key="GridCell.Tab.1.left" timestamp="1600981386007">
+      <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state width="1554" height="264" key="GridCell.Tab.1.left/0.0.1600.856@0.0.1600.856" timestamp="1600772860859" />
     <state width="1802" height="340" key="GridCell.Tab.1.left/72.26.1848.1054@72.26.1848.1054" timestamp="1600955156244" />
-    <state width="1802" height="340" key="GridCell.Tab.1.right" timestamp="1600955156244">
-      <screen x="72" y="26" width="1848" height="1054" />
+    <state width="1802" height="340" key="GridCell.Tab.1.left/72.27.1848.1053@72.27.1848.1053" timestamp="1600981386007" />
+    <state width="1802" height="340" key="GridCell.Tab.1.right" timestamp="1600981386008">
+      <screen x="72" y="27" width="1848" height="1053" />
     </state>
     <state width="1554" height="264" key="GridCell.Tab.1.right/0.0.1600.856@0.0.1600.856" timestamp="1600772860860" />
     <state width="1802" height="340" key="GridCell.Tab.1.right/72.26.1848.1054@72.26.1848.1054" timestamp="1600955156244" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/ArrayList.java</url>
-          <line>56</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state width="1802" height="340" key="GridCell.Tab.1.right/72.27.1848.1053@72.27.1848.1053" timestamp="1600981386008" />
+    <state x="485" y="188" width="1022" height="737" key="SettingsEditor" timestamp="1600975962775">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="485" y="188" width="1022" height="737" key="SettingsEditor/72.27.1848.1053@72.27.1848.1053" timestamp="1600975962775" />
+    <state x="729" y="314" width="524" height="485" key="extract.method.dialog" timestamp="1600981681445">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="729" y="314" width="524" height="485" key="extract.method.dialog/72.27.1848.1053@72.27.1848.1053" timestamp="1600981681445" />
+    <state x="590" y="155" width="802" height="803" key="new project wizard" timestamp="1600979558317">
+      <screen x="72" y="27" width="1848" height="1053" />
+    </state>
+    <state x="590" y="155" width="802" height="803" key="new project wizard/72.27.1848.1053@72.27.1848.1053" timestamp="1600979558317" />
   </component>
 </project>
