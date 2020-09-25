@@ -1,1 +1,0 @@
-{ "Kollekciok" : {"Beszuras" : {"10" :{"TreeSet" :4,"LinkedList" : 1},"1000" :{"TreeSet" :0,"LinkedList" : 0},"100000" :{"TreeSet" :0,"LinkedList" : 0},"1000000" :{"TreeSet" :1,"LinkedList" : 0}},"Kereses" : {"10" :{"TreeSet" :8,"LinkedList" : 6},"1000" :{"TreeSet" :4,"LinkedList" : 368},"100000" :{"TreeSet" :6,"LinkedList" : 8629},"1000000" :{"TreeSet" :7,"LinkedList" : 7366}}}}
