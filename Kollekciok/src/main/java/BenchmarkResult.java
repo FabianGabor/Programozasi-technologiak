@@ -1,5 +1,6 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.RandomAccessFile;
 import java.util.Map;
 import java.util.TreeMap;
@@ -102,29 +103,54 @@ public class BenchmarkResult {
     }
 
     public void writeFileResults(TreeMap<Integer, BenchmarkResult> results) throws IOException {
-        RandomAccessFile writer = new RandomAccessFile("kollekciok.json", "rw");
+        String filename = "kollekciok.json";
+        PrintWriter empty = new PrintWriter(filename);
+        empty.print("");
+        empty.close();
+        RandomAccessFile writer = new RandomAccessFile(filename, "rw");
 
         writer.writeBytes("{ \"Kollekciok\" : {");
 
-        writer.writeBytes("\"Beszuras\" : [");
+        writer.writeBytes("\"Beszuras\" : {");
+        int i;
+        i = 1;
         for (Map.Entry <Integer, BenchmarkResult> r : results.entrySet()) {
+            writer.writeBytes("\"" + r.getKey() + "\" :");
             writer.writeBytes("{");
-            writer.writeBytes("\"Size\" :" + String.valueOf(r.getKey()) + ",");
+            //writer.writeBytes("\"Size\" :" + String.valueOf(r.getKey()) + ",");
+            //writer.writeBytes("\"Time Unit\" :" + "\"MICROSECONDS\"" + ",");
             writer.writeBytes("\"TreeSet\" :" + r.getValue().getInsert().getTreeset() + ",");
-            writer.writeBytes("\"LinkedList\" : " + r.getValue().getInsert().getLinkedlist() + ",");
-            writer.writeBytes("\"TreeSet - LinkedList\" :" + String.valueOf(r.getValue().getInsert().getTreeset() - r.getValue().getInsert().getLinkedlist()) + " },");
-        }
-        writer.writeBytes("],"); // beszuras ]
+            writer.writeBytes("\"LinkedList\" : " + r.getValue().getInsert().getLinkedlist());
+            //writer.writeBytes("\"TreeSet - LinkedList\" :" + String.valueOf(r.getValue().getInsert().getTreeset() - r.getValue().getInsert().getLinkedlist()));
+            writer.writeBytes("}");
 
-        writer.writeBytes("\"Kereses\" : [");
-        for (Map.Entry <Integer, BenchmarkResult> r : results.entrySet()) {
-            writer.writeBytes("{");
-            writer.writeBytes("\"Size\" :" + String.valueOf(r.getKey()) + ",");
-            writer.writeBytes("\"TreeSet\" :" + r.getValue().getFind().getTreeset() + ",");
-            writer.writeBytes("\"LinkedList\" : " + r.getValue().getFind().getLinkedlist() + ",");
-            writer.writeBytes("\"TreeSet / LinkedList\" :" + String.valueOf(r.getValue().getFind().getTreeset() / r.getValue().getFind().getLinkedlist()) + " },");
+            if (i < results.entrySet().size())
+                writer.writeBytes(",");
+            i++;
         }
-        writer.writeBytes("]"); // Kereses ]
+        writer.writeBytes("},"); // beszuras ]
+
+
+
+        writer.writeBytes("\"Kereses\" : {");
+        i = 1;
+        for (Map.Entry <Integer, BenchmarkResult> r : results.entrySet()) {
+            writer.writeBytes("\"" + r.getKey() + "\" :");
+            writer.writeBytes("{");
+            //writer.writeBytes("\"Size\" :" + String.valueOf(r.getKey()) + ",");
+            //writer.writeBytes("\"Time Unit\" :" + "\"MICROSECONDS\"" + ",");
+            writer.writeBytes("\"TreeSet\" :" + r.getValue().getFind().getTreeset() + ",");
+            writer.writeBytes("\"LinkedList\" : " + r.getValue().getFind().getLinkedlist());
+            //writer.writeBytes("\"TreeSet / LinkedList\" :" + String.valueOf(r.getValue().getFind().getTreeset() / r.getValue().getFind().getLinkedlist()));
+            writer.writeBytes("}");
+
+            if (i < results.entrySet().size())
+                writer.writeBytes(",");
+            i++;
+        }
+        writer.writeBytes("}"); // Kereses ]
+
+
 
         writer.writeBytes("}}");
 
