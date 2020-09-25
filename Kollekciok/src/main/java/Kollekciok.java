@@ -47,8 +47,8 @@ public class Kollekciok {
         NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.GERMAN);
         numberFormat.setGroupingUsed(true);
         BenchmarkResult result = new BenchmarkResult();
-        BenchmarkResult.Find resultFind = new BenchmarkResult.Find();
-        BenchmarkResult.Insert resultInsert = new BenchmarkResult.Insert();
+        BenchmarkResult.Find resultFind;
+        BenchmarkResult.Insert resultInsert;
         TreeMap<Integer, BenchmarkResult> results = new TreeMap<>();
 
 
@@ -68,12 +68,16 @@ public class Kollekciok {
             Random random = new Random();
             int r = random.nextInt();
 
+            result = new BenchmarkResult();
+
             result.setSize(N[i]);
 
+            resultInsert = new BenchmarkResult.Insert();
             resultInsert.setTreeset(beszur(treeSet, r));
             resultInsert.setLinkedlist(beszur(linkedList, r));
             result.setInsert(resultInsert);
 
+            resultFind = new BenchmarkResult.Find();
             resultFind.setTreeset(keres(treeSet,1));
             resultFind.setLinkedlist(keres(linkedList,1));
             result.setFind(resultFind);
