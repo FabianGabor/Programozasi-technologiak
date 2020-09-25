@@ -109,49 +109,39 @@ public class BenchmarkResult {
         empty.close();
         RandomAccessFile writer = new RandomAccessFile(filename, "rw");
 
-        writer.writeBytes("{ \"Kollekciok\" : {");
-
-        writer.writeBytes("\"Beszuras\" : {");
         int i;
+
+        writer.writeBytes("{ \"Kollekciok\" : {");
+        writer.writeBytes("\"Beszuras\" : {");
+
         i = 1;
         for (Map.Entry <Integer, BenchmarkResult> r : results.entrySet()) {
             writer.writeBytes("\"" + r.getKey() + "\" :");
             writer.writeBytes("{");
-            //writer.writeBytes("\"Size\" :" + String.valueOf(r.getKey()) + ",");
-            //writer.writeBytes("\"Time Unit\" :" + "\"MICROSECONDS\"" + ",");
             writer.writeBytes("\"TreeSet\" :" + r.getValue().getInsert().getTreeset() + ",");
             writer.writeBytes("\"LinkedList\" : " + r.getValue().getInsert().getLinkedlist());
-            //writer.writeBytes("\"TreeSet - LinkedList\" :" + String.valueOf(r.getValue().getInsert().getTreeset() - r.getValue().getInsert().getLinkedlist()));
             writer.writeBytes("}");
 
             if (i < results.entrySet().size())
                 writer.writeBytes(",");
             i++;
         }
-        writer.writeBytes("},"); // beszuras ]
-
-
+        writer.writeBytes("},"); // Beszuras end
 
         writer.writeBytes("\"Kereses\" : {");
         i = 1;
         for (Map.Entry <Integer, BenchmarkResult> r : results.entrySet()) {
             writer.writeBytes("\"" + r.getKey() + "\" :");
             writer.writeBytes("{");
-            //writer.writeBytes("\"Size\" :" + String.valueOf(r.getKey()) + ",");
-            //writer.writeBytes("\"Time Unit\" :" + "\"MICROSECONDS\"" + ",");
             writer.writeBytes("\"TreeSet\" :" + r.getValue().getFind().getTreeset() + ",");
             writer.writeBytes("\"LinkedList\" : " + r.getValue().getFind().getLinkedlist());
-            //writer.writeBytes("\"TreeSet / LinkedList\" :" + String.valueOf(r.getValue().getFind().getTreeset() / r.getValue().getFind().getLinkedlist()));
             writer.writeBytes("}");
 
             if (i < results.entrySet().size())
                 writer.writeBytes(",");
             i++;
         }
-        writer.writeBytes("}"); // Kereses ]
-
-
-
+        writer.writeBytes("}"); // Kereses end
         writer.writeBytes("}}");
 
         writer.close();
