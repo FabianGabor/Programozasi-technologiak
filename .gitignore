@@ -122,3 +122,31 @@ fabric.properties
 
 
 Kollekciok/.idea/workspace.xml
+
+javacodegeeks_example/build.xml
+
+javacodegeeks_example/javacodegeeks.properties
+
+javacodegeeks_example/manifest.mf
+
+javacodegeeks_example/nbproject/build-impl.xml
+
+javacodegeeks_example/nbproject/genfiles.properties
+
+javacodegeeks_example/nbproject/private/private.properties
+
+javacodegeeks_example/nbproject/private/private.xml
+
+javacodegeeks_example/nbproject/project.properties
+
+javacodegeeks_example/nbproject/project.xml
+
+javacodegeeks_example/src/com/javacodegeeks/corejava/util/logging/ConfigurationExample.java
+
+javacodegeeks_example/src/com/javacodegeeks/corejava/util/logging/FilterExample.java
+
+javacodegeeks_example/src/com/javacodegeeks/corejava/util/logging/FormatterExample.java
+
+javacodegeeks_example/src/com/javacodegeeks/corejava/util/logging/HandlerExample.java
+
+javacodegeeks_example/src/com/javacodegeeks/corejava/util/logging/LoggerExample.java
