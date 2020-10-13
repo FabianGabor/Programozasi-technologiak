@@ -1,3 +1,5 @@
+package com.fabiangabor.kollekciokBenchmark;
+
 import com.google.common.base.Stopwatch;
 import java.io.IOException;
 import java.text.NumberFormat;
@@ -10,7 +12,12 @@ public class Kollekciok {
 
     final static int N[] = new int[] {10, 1000, 100000, 1000000 };
 
-
+    /**
+     *
+     * @param collection
+     * @param x
+     * @return
+     */
     public static long beszur (Collection<Integer> collection, int x) {
         Stopwatch stopwatchTreeSet = Stopwatch.createStarted();
         collection.add(x);
@@ -19,6 +26,12 @@ public class Kollekciok {
         return stopwatchTreeSet.elapsed(MICROSECONDS);
     }
 
+    /**
+     *
+     * @param treeSet
+     * @param linkedList
+     * @param n
+     */
     public static void feltolt (Collection<Integer> treeSet, Collection<Integer> linkedList, int n) {
         Random random = new Random();
         int r = random.nextInt();
@@ -33,6 +46,12 @@ public class Kollekciok {
         System.out.println();
     }
 
+    /**
+     *
+     * @param collection
+     * @param x
+     * @return
+     */
     public static long keres (Collection<Integer> collection, int x) {
         Stopwatch stopwatch = Stopwatch.createUnstarted();
         stopwatch.start();
@@ -42,7 +61,11 @@ public class Kollekciok {
         return stopwatch.elapsed(MICROSECONDS);
     }
 
-
+    /**
+     *
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
         NumberFormat numberFormat = NumberFormat.getNumberInstance(Locale.GERMAN);
         numberFormat.setGroupingUsed(true);

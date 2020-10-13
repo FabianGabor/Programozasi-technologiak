@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"com.fabiangabor.kollekciokBenchmark","l":"BenchmarkResult"},{"p":"com.fabiangabor.kollekciokBenchmark","l":"Kollekciok"}];updateSearchResults();

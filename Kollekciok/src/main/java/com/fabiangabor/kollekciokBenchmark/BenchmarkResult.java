@@ -1,4 +1,5 @@
-import java.io.FileNotFoundException;
+package com.fabiangabor.kollekciokBenchmark;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.RandomAccessFile;
@@ -6,8 +7,6 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class BenchmarkResult {
-    //long treeset;
-    //long linkedlist;
     int size;
     Insert insert;
     Find find;
@@ -19,6 +18,10 @@ public class BenchmarkResult {
         return size;
     }
 
+    /**
+     *
+     * @param size
+     */
     public void setSize(int size) {
         this.size = size;
     }
@@ -27,6 +30,10 @@ public class BenchmarkResult {
         return insert;
     }
 
+    /**
+     *
+     * @param insert
+     */
     public void setInsert(Insert insert) {
         this.insert = insert;
     }
@@ -35,10 +42,17 @@ public class BenchmarkResult {
         return find;
     }
 
+    /**
+     *
+     * @param find
+     */
     public void setFind(Find find) {
         this.find = find;
     }
 
+    /**
+     *
+     */
     static class Insert {
         long treeset;
         long linkedlist;
@@ -50,6 +64,10 @@ public class BenchmarkResult {
             return treeset;
         }
 
+        /**
+         *
+         * @param treeset
+         */
         public void setTreeset(long treeset) {
             this.treeset = treeset;
         }
@@ -58,6 +76,10 @@ public class BenchmarkResult {
             return linkedlist;
         }
 
+        /**
+         *
+         * @param linkedlist
+         */
         public void setLinkedlist(long linkedlist) {
             this.linkedlist = linkedlist;
         }
@@ -74,6 +96,10 @@ public class BenchmarkResult {
             return treeset;
         }
 
+        /**
+         *
+         * @param treeset
+         */
         public void setTreeset(long treeset) {
             this.treeset = treeset;
         }
@@ -82,11 +108,19 @@ public class BenchmarkResult {
             return linkedlist;
         }
 
+        /**
+         *
+         * @param linkedlist
+         */
         public void setLinkedlist(long linkedlist) {
             this.linkedlist = linkedlist;
         }
     }
 
+    /**
+     *
+     * @param results
+     */
     public void printResults(TreeMap<Integer, BenchmarkResult> results) {
         for (Map.Entry <Integer, BenchmarkResult> r : results.entrySet()) {
             System.out.println("\n" + r.getKey() + " elem:");
@@ -102,6 +136,11 @@ public class BenchmarkResult {
         }
     }
 
+    /**
+     *
+     * @param results
+     * @throws IOException
+     */
     public void writeFileResults(TreeMap<Integer, BenchmarkResult> results) throws IOException {
         String filename = "kollekciok.json";
         PrintWriter empty = new PrintWriter(filename);
