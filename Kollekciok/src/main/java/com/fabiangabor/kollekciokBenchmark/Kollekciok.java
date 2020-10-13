@@ -6,10 +6,11 @@ import java.text.NumberFormat;
 import java.util.*;
 import static java.util.concurrent.TimeUnit.*;
 
+/**
+ * Adjon olyan Java-kódot, ami összehasonlítja a TreeSet és a LinkedList adatszerkezetek keresési algoritmusait,
+ * tízmilliós-milliárdos nagyságrendű adatszerkezeteken (a JVM heap-jét növelni szükséges lehet)!
+ */
 public class Kollekciok {
-    // Adjon olyan Java-kódot, ami összehasonlítja a TreeSet és a LinkedList adatszerkezetek keresési algoritmusait,
-    // tízmilliós-milliárdos nagyságrendű adatszerkezeteken (a JVM heap-jét növelni szükséges lehet) !
-
     final static int N[] = new int[] {10, 1000, 100000, 1000000 };
 
     /**
