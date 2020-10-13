@@ -1,4 +1,7 @@
 package com.fabiangabor.kollekciokBenchmark;
+/**
+ * @author Fabian Gabor
+ */
 
 import com.google.common.base.Stopwatch;
 import java.io.IOException;
