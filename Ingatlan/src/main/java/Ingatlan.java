@@ -33,7 +33,7 @@ public class Ingatlan implements IngatlanInterface{
             case "Nyiregyhaza": szorzo = 1.15;
             default: szorzo = 1;
         }
-        return (Integer)ar * nm * szorzo;
+        return (int) (ar * nm * szorzo);
     }
 
     /**
@@ -59,7 +59,7 @@ public class Ingatlan implements IngatlanInterface{
                 ", nm=" + nm +
                 ", szobaszam=" + szobaszam +
                 ", tipus=" + tipus +
-                ", teljesAr=" + teljesar(ar, nm) +
+                ", teljesAr=" + teljesar(ar, nm, telepules) +
                 ", atlagos=" + atlagos(nm, szobaszam) +
                 '}';
     }
