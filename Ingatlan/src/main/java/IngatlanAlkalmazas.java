@@ -29,6 +29,17 @@ public class IngatlanAlkalmazas implements IngatlanAlkalmazasInterface{
         return 0;
     }
 
+    /**
+     * Az ingatlanok átlagos négyzetméter árát
+     * A legolcsóbb ingatlan ára
+     * A legdrágább Budapesti lakás egy szobára eső átlagos négyzetméter értékét
+     * Az ingatlanok összesített árát
+     * Azon társasházi ingatlanok felsorolása, melyek teljes ára nem haladja meg az ingatlanok teljes árának átlagát
+     * @param args
+     */
+
     public static void main(String[] args) {
+        Ingatlanos ingatlanos = new Ingatlanos();
+        ingatlanos.feltolt();
     }
 }

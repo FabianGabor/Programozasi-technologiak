@@ -51,6 +51,7 @@ public class Ingatlan implements IngatlanInterface{
      * az ingatlan adatainak kiíratása a teljes árral és a szobákra eső átlagos négyzetméterszámmal egyetemben.
      * @return
      */
+    /*
     @Override
     public String toString() {
         return "Ingatlan{" +
@@ -63,6 +64,8 @@ public class Ingatlan implements IngatlanInterface{
                 ", atlagos=" + atlagos(nm, szobaszam) +
                 '}';
     }
+
+     */
 
     enum Tipus {CSALÁDIHÁZ, TÁRSASHÁZ, HÁZRÉSZ};
     Tipus tipus;
