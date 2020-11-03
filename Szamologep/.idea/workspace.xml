@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c8492132-f1e5-4f24-af2d-bd4dfd524ebe" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../JavaFX/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JavaFX/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JavaFX/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JavaFX/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JavaFX/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JavaFX/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JavaFX/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JavaFX/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/MainApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/Szamologep.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/Szamologep.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/SzamologepFX.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/SzamologepGUI.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/SzamologepGUI.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="module-info" />
+        <option value="JavaFXApplication" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="Bankjegyek" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1jSakzQ2fXA2EvWIZQo8dJwM4H4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java" />
+    <property name="settings.editor.selected.configurable" value="project.propGUI" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="SzamologepFX" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.openjfx.SzamologepFX" />
+      <module name="Szamologep.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.openjfx.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c8492132-f1e5-4f24-af2d-bd4dfd524ebe" name="Default Changelist" comment="" />
+      <created>1603800096034</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603800096034</updated>
+      <workItem from="1603800097995" duration="2784000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="582" y="291" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1603801021449">
+      <screen x="0" y="0" width="1600" height="856" />
+    </state>
+    <state x="582" y="291" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1600.856@0.0.1600.856" timestamp="1603801021449" />
+    <state x="587" y="170" key="FileChooserDialogImpl" timestamp="1603800876646">
+      <screen x="0" y="0" width="1600" height="856" />
+    </state>
+    <state x="587" y="170" key="FileChooserDialogImpl/0.0.1600.856@0.0.1600.856" timestamp="1603800876646" />
+    <state width="1554" height="195" key="GridCell.Tab.0.bottom" timestamp="1603802953469">
+      <screen x="0" y="0" width="1600" height="856" />
+    </state>
+    <state width="1554" height="195" key="GridCell.Tab.0.bottom/0.0.1600.856@0.0.1600.856" timestamp="1603802953469" />
+    <state width="1554" height="195" key="GridCell.Tab.0.center" timestamp="1603802953468">
+      <screen x="0" y="0" width="1600" height="856" />
+    </state>
+    <state width="1554" height="195" key="GridCell.Tab.0.center/0.0.1600.856@0.0.1600.856" timestamp="1603802953468" />
+    <state width="1554" height="195" key="GridCell.Tab.0.left" timestamp="1603802953468">
+      <screen x="0" y="0" width="1600" height="856" />
+    </state>
+    <state width="1554" height="195" key="GridCell.Tab.0.left/0.0.1600.856@0.0.1600.856" timestamp="1603802953468" />
+    <state width="1554" height="195" key="GridCell.Tab.0.right" timestamp="1603802953468">
+      <screen x="0" y="0" width="1600" height="856" />
+    </state>
+    <state width="1554" height="195" key="GridCell.Tab.0.right/0.0.1600.856@0.0.1600.856" timestamp="1603802953468" />
+    <state x="301" y="62" key="SettingsEditor" timestamp="1603802665947">
+      <screen x="0" y="0" width="1600" height="856" />
+    </state>
+    <state x="301" y="62" key="SettingsEditor/0.0.1600.856@0.0.1600.856" timestamp="1603802665947" />
+    <state x="602" y="207" key="chooseDestDirectoryDialog" timestamp="1603800172438">
+      <screen x="0" y="0" width="1600" height="856" />
+    </state>
+    <state x="602" y="207" key="chooseDestDirectoryDialog/0.0.1600.856@0.0.1600.856" timestamp="1603800172438" />
+    <state x="399" y="18" width="1199" height="819" key="new project wizard" timestamp="1603802570866">
+      <screen x="0" y="0" width="1600" height="856" />
+    </state>
+    <state x="399" y="18" width="1199" height="819" key="new project wizard/0.0.1600.856@0.0.1600.856" timestamp="1603802570866" />
+  </component>
+</project>
